@@ -1,0 +1,28 @@
+{
+  "name": "country-api",
+  "version": "1.0.0",
+  "description": "Stage-2 task for HNG",
+  "license": "ISC",
+  "author": "Olalekan Macaulay",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "ioredis": "^5.8.2",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.3",
+    "redis": "^5.9.0",
+    "sequelize": "^6.37.7",
+    "sharp": "^0.34.4"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.3"
+  }
+}

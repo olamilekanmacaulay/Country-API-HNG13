@@ -1,0 +1,42 @@
+const axios = require('axios');
+
+// URLs for the external APIs
+const COUNTRIES_API_URL = 'https://restcountries.com/v2/all?fields=name,capital,region,population,flag,currencies';
+const EXCHANGE_RATE_API_URL = 'https://open.er-api.com/v6/latest/USD';
+
+// Helper function to get a random number between 1000 and 2000
+const getRandomMultiplier = () => {
+  return Math.random() * (2000 - 1000) + 1000;
+};
+
+
+const fetchExternalData = async () => {
+  try {
+    const [countryResponse, exchangeRateResponse] = await Promise.all([
+      axios.get(COUNTRIES_API_URL),
+      axios.get(EXCHANGE_RATE_API_URL)
+    ]);
+
+    // Check if both requests were successful
+    if (countryResponse.status !== 200) {
+      throw new Error(`Failed to fetch country data, status: ${countryResponse.status}`);
+    }
+    if (exchangeRateResponse.status !== 200) {
+      throw new Error(`Failed to fetch exchange rates, status: ${exchangeRateResponse.status}`);
+    }
+
+    return {
+      countries: countryResponse.data,
+      rates: exchangeRateResponse.data.rates
+    };
+
+  } catch (error) {
+    console.error('Error fetching external data:', error.message);
+    throw new Error('External data source unavailable');
+  }
+};
+
+module.exports = {
+  fetchExternalData,
+  getRandomMultiplier
+};
