@@ -34,9 +34,10 @@ const generateSummaryImage = async () => {
 		const svgText = `
 			<svg width="800" height="400">
 				<style>
-					.title { fill: #000; font-size: 32px; font-family: Arial, sans-serif; font-weight: bold; }
-					.subtitle { fill: #333; font-size: 20px; font-family: Arial, sans-serif; }
-					.data { fill: #111; font-size: 18px; font-family: 'Courier New', monospace; }
+					.title { fill: #000; font-size: 32px; font-family: 'Noto Sans'; font-weight: bold; }
+					.subtitle { fill: #333; font-size: 20px; font-family: 'Noto Sans'; }
+					.data { fill: #111; font-size: 18px; font-family: 'Noto Sans Mono', monospace; }
+      				.gdp { font-weight: bold; }
 				</style>
 				<text x="50" y="60" class="title">Country Data Summary</text>
 				<text x="50" y="90" class="subtitle">Total Countries Cached: ${totalCountries}</text>
