@@ -36,7 +36,7 @@ const refreshCountryData = async () => {
     // Invalidate (clear) the Redis cache
     const keys = await redisClient.keys('countries:*');
     if (keys.length > 0) {
-        await redis.del(keys);
+        await redisClient.del(keys);
     }
     await redisClient.del('status'); // Also clear the status cache
 
